@@ -1,12 +1,7 @@
 import feedparser
-import pandas as pd
-from ast import literal_eval
 import tweepy
-import time
-import sys
 from PIL import Image, ImageDraw, ImageFont
 import textwrap
-import json
 from datetime import datetime
 
 #create a new twitter handle and follow nstructions to create a new App.
