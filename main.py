@@ -28,10 +28,9 @@ def handler(event,context):
                 cleaned_link = entries['links'][0]['href'].encode('utf-8')
                 tweet = cleaned_title + "\n" + cleaned_link
                 cleaned_desc = entries['summary_detail']['value'].encode('utf-8')
-
           #Excluding feed items with "Filtered View Updated" in them
-                if "Filtered View Updated" in cleaned_title:
-                        continue
+#                 if "Filtered View Updated" in cleaned_title:
+#                         continue
           # This makes sure that you are not reposting the same "Dataset created stuff
           # Update: Use the SIFTRSS link above and you wont need this (i think)
 #                 if "Dataset Created" in cleaned_title:
@@ -58,10 +57,10 @@ def handler(event,context):
                 d = ImageDraw.Draw(img)
                 d.text((30,30), dict_string, font=fnt, fill=(0, 0, 0))
 
-        #outfile = 'tweet_%s.jpg' % str(datetime.now())
+                #outfile = 'tweet_%s.jpg' % str(datetime.now())
                 img.save('/tmp/tweet.jpg')
-        #img.save(outfile)
+                #img.save(outfile)
 
-        # Prints the tweet and saves the image file but does not update twitter. Uncomment the api line to do that.
+                # Prints the tweet and saves the image file but does not update twitter. Uncomment the api line to do that.
                 print tweet
                 api.update_with_media('/tmp/tweet.jpg',str(tweet))
